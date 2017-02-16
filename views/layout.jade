@@ -1,0 +1,21 @@
+block vars
+doctype html
+html
+  head
+    .app-navbar
+      .nav-items
+        for 
+        a(href="/")
+          .nav-item Main
+        a(href="/login") 
+          .nav-item Log In
+        a(href="/register") 
+          .nav-item Register
+        a(href="/chat")
+          .nav-item Chat
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+    .app-footer
+      p Group 2 Assignment 2

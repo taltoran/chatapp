@@ -1,0 +1,26 @@
+extends layout
+
+block vars
+  - var title = 'Login'
+
+block content
+  h2 Login
+
+  if error
+    p ERROR: #{error}
+
+  .form-style-8
+    form(method="post")
+      //input#input-1.input__field(type="hidden", name="_csrf", value=csrfToken)
+
+      span Email:
+      input#input-2.input__field(type="email", name="email", required=true)
+      label.input__label(for='input-2')
+      br
+
+      span Password:
+      input#input-3.input__field(type="password", name="password", required=true)
+      label.input__label(for='input-3')
+      br
+      
+      input#send-button(type='submit')
