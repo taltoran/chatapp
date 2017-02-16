@@ -10,6 +10,7 @@ $(function() {
   // Initialize variables
   var $window = $(window);
   var $usernameInput = $('.usernameInput'); // Input for username
+  var $usernameHidden = $('.userName');
   var $messages = $('.messages'); // Messages area
   var $inputMessage = $('.inputMessage'); // Input message input box
 
@@ -26,6 +27,9 @@ $(function() {
 
   var socket = io();
 
+  //window.onload(setUsername());
+  document.onload = setUsername();
+
   function addParticipantsMessage (data) {
     var message = '';
     if (data.numUsers === 1) {
@@ -39,7 +43,8 @@ $(function() {
   // Sets the client's username
   function setUsername () {
     console.log("Trying to set the user!");
-    username = cleanInput($usernameInput.val().trim());
+    username = cleanInput($usernameHidden.val().trim());
+    //username = cleanInput('test'.trim());
 
     // If the username is valid
     if (username) {
