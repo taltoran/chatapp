@@ -9,14 +9,16 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', function(req, res) {
-  user.findOne({ email: req.body.email }, 'firstName lastName email password data', function(err, user) {
+  user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user) {
     if (!user) {
       //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
+      //if error check error
+      req.user.session = user._id;
       res.redirect('register');
     } else {
       if (bcrypt.compareSync(req.body.password, user.password)) {
         //utils.createUserSession(req, res, user);
-        res.redirect('/chat');
+        res.redirect('/chat?userName='+user.userName);
       } else {
         //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
         res.redirect('login');
