@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //extends layout
 doctype html
 html
@@ -17,6 +18,19 @@ html
           h3.title What's your nickname?
           input.usernameInput(type="text" maxlength="14")
           button(onclick='setUsername()') Click
+=======
+extends layout
+
+block content
+  input.userName(type="hidden" value=user)
+  ul.pages
+    li.chat.page
+      div.chatArea
+        ul.messages
+      input.inputMessage(placeholder="Type here...")
+    li.login.page
+
+>>>>>>> e4acf693d92d14b09329696c5e196312b73b6518
   script(src="https://code.jquery.com/jquery-1.10.2.min.js")
   script(src="/scripts/socket.io.js")
   script(src="/scripts/mainChat.js").

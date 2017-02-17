@@ -12,7 +12,8 @@ router.get(function(req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('chat', { title: 'This is a test chat page.' })
+  var userName = req.query.userName;
+  res.render('chat', { title: 'This is a test chat page.', user:  userName})
 });
 
 
