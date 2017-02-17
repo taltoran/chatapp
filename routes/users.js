@@ -12,8 +12,6 @@ router.post('/login', function(req, res) {
   user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user) {
     if (!user) {
       //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
-      //if error check error
-      req.user.session = user._id;
       res.redirect('register');
     } else {
       if (bcrypt.compareSync(req.body.password, user.password)) {
