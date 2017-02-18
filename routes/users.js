@@ -8,23 +8,10 @@ router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
-<<<<<<< HEAD
-router.post('/login', function(req, res, next) {
-  //before accessing these check the type
-  user.findOne({ email: req.body.email, password: req.body.password }, 'firstName lastName email password data', function(err, user) {
-    if (err){
-      return(next(err));
-    } else {
-      next();
-    }
-=======
 router.post('/login', function(req, res) {
   user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user) {
->>>>>>> e4acf693d92d14b09329696c5e196312b73b6518
     if (!user) {
       //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
-      //if error check error
-      req.user.session = user._id;
       res.redirect('register');
     } else {
       if (bcrypt.compareSync(req.body.password, user.password)) {
