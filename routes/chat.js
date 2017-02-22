@@ -16,7 +16,7 @@ router.get(function(req, res, next) {
 router.get('/', function(req, res, next) {
   if(!token.verify(req.session.authEmail, req.session.authToken)) {
     console.log('not logged in, redirecting to login page');
-    res.redirect('login');
+    return res.redirect('login');
   }
   console.log('entering chat as user \"'+req.session.authName+'\"')
   var params = { title: 'This is a test chat page.', user: req.session.authName};
