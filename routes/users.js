@@ -3,11 +3,17 @@ var bcrypt = require('bcryptjs');
 var router = express.Router();
 var user = require('../models/modelSetup');
 var token = require('token');
+var auth = require('../auth');
 
-token.defaults.secret = 'SECRET_NSA_DATABASE';
-// tokens are invalidated after this long
-token.defaults.timeStep = 24 * 60 * 60; // 24h in seconds
 
+router.get('/logout', function(req, res, next) {
+  token.invalidate(req.session.authEmail, req.session.authToken);
+  req.session.authToken = undefined;
+  req.session.authEmail = undefined;
+  req.session.authName = undefined;
+  console.log('successfully logged out');
+  return res.redirect('/');
+});
 
 router.get('/login', function(req, res, next) {
   if(req.session.authEmail && req.session.authToken) {
@@ -17,21 +23,25 @@ router.get('/login', function(req, res, next) {
       return res.redirect('/chat');
     }
   }
-  res.render('login');
+  var params = {};
+  auth.getLoginType(req, params);
+  res.render('login', params);
 });
 
 router.post('/login', function(req, res) {
   user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user) {
     if (!user) {
       // this user doesn't exist!
-      res.render('login', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
+      var params = { error: "Incorrect email / password.", csrfToken: req.csrfToken() };
+      auth.getLoginType(req, params);
+      res.render('login', params);
     }
     else {
       if (bcrypt.compareSync(req.body.password, user.password)) {
         // our password is correct, obtain a token and redirect to the chat page
         req.session.authToken = token.generate(req.body.email);
         req.session.authEmail = req.body.email;
-        req.session.authName = user.name;
+        req.session.authName = user.userName;
         console.log(req.body.email);
         console.log(req.session.authToken);
         console.log(req.session.authName);
@@ -47,7 +57,9 @@ router.post('/login', function(req, res) {
 });
 
 router.get('/register', function(req, res, next) {
-  res.render('register', { title: 'Registration Page.' });
+  var params = { title: 'Registration Page.' };
+  auth.getLoginType(req, params);
+  res.render('register', params);
 });
 
 // create a new user account.
@@ -65,12 +77,14 @@ router.post('/register', function(req, res) {
   newUser.save(function(err) {
     if (err) {
       var error = 'Something bad happened! Please try again.';
-
       if (err.code === 11000) {
         error = 'That email is already taken, please try another.';
       }
-      res.render('register.jade', { error: error });
-    } else {
+      var params = { title: 'Registration Page.', error: error };
+      auth.getLoginType(req, params);
+      res.render('register', params);
+    }
+    else {
       req.session.users = newUser;
       req.users = newUser;
       res.locals.user = newUser;
