@@ -1,23 +1,44 @@
 var express = require('express');
 var bcrypt = require('bcryptjs');
 var router = express.Router();
-var user = require('../models/modelSetup')
+var user = require('../models/modelSetup');
+var token = require('token');
 
-/* GET users login page. */
+token.defaults.secret = 'SECRET_NSA_DATABASE';
+// tokens are invalidated after this long
+token.defaults.timeStep = 24 * 60 * 60; // 24h in seconds
+
+
 router.get('/login', function(req, res, next) {
+  if(req.session.authEmail && req.session.authToken) {
+    if(token.verify(req.session.authEmail, req.session.authToken)) {
+      console.log(req.session.authEmail);
+      console.log('already logged in! redirecting to chat page...');
+      return res.redirect('/chat');
+    }
+  }
   res.render('login');
 });
 
 router.post('/login', function(req, res) {
   user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user) {
     if (!user) {
-      //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
-      res.redirect('register');
-    } else {
+      // this user doesn't exist!
+      res.render('login', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
+    }
+    else {
       if (bcrypt.compareSync(req.body.password, user.password)) {
-        //utils.createUserSession(req, res, user);
-        res.redirect('/chat?userName='+user.userName);
-      } else {
+        // our password is correct, obtain a token and redirect to the chat page
+        req.session.authToken = token.generate(req.body.email);
+        req.session.authEmail = req.body.email;
+        req.session.authName = user.name;
+        console.log(req.body.email);
+        console.log(req.session.authToken);
+        console.log(req.session.authName);
+        res.redirect('/chat');
+      }
+      else {
+        // incorrect password, try again
         //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
         res.redirect('login');
       }
@@ -25,16 +46,11 @@ router.post('/login', function(req, res) {
   });
 });
 
-/* GET users register page. */
 router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Registration Page.' });
 });
 
-/**
- * Create a new user account.
- *
- * Once a user is logged in, they will be sent to the dashboard page.
- */
+// create a new user account.
 router.post('/register', function(req, res) {
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
@@ -59,12 +75,13 @@ router.post('/register', function(req, res) {
       req.users = newUser;
       res.locals.user = newUser;
       //user.User.save(function (err) {if (err) console.log ('Error on save!')});
+      console.log('user added');
       res.redirect('/login');
     }
   });
 });
 
-/* GET users listing. */
+// GET users listing?
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
