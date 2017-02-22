@@ -64,6 +64,27 @@ router.get('/register', function(req, res, next) {
 
 // create a new user account.
 router.post('/register', function(req, res) {
+  let verifyError = auth.verifyInfo(
+    req.body.userName,
+    req.body.email,
+    req.body.password,
+    req.body.password,
+    req.body.firstName,
+    req.body.lastName
+  );
+  var params = {
+    title: 'Registration Page.',
+    error: verifyError,
+    userName: req.body.userName,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email
+  };
+  if(verifyError !== undefined) {
+    auth.getLoginType(req, params);
+    return res.render('register', params);
+  }
+
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
 
@@ -80,7 +101,6 @@ router.post('/register', function(req, res) {
       if (err.code === 11000) {
         error = 'That email is already taken, please try another.';
       }
-      var params = { title: 'Registration Page.', error: error };
       auth.getLoginType(req, params);
       res.render('register', params);
     }
@@ -88,7 +108,6 @@ router.post('/register', function(req, res) {
       req.session.users = newUser;
       req.users = newUser;
       res.locals.user = newUser;
-      //user.User.save(function (err) {if (err) console.log ('Error on save!')});
       console.log('user added');
       res.redirect('/login');
     }
