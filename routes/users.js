@@ -28,8 +28,10 @@ router.get('/login', function(req, res, next) {
   res.render('login', params);
 });
 
-router.post('/login', function(req, res) {
-  user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user) {
+router.post('/login', function(req, res, next) {
+  //before accessing these check the type
+  user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user, err) {
+//  user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user) {
     if (!user) {
       // this user doesn't exist!
       var params = { error: "Incorrect email / password.", csrfToken: req.csrfToken() };
@@ -50,7 +52,7 @@ router.post('/login', function(req, res) {
       else {
         // incorrect password, try again
         //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
-        res.redirect('login');
+        res.render('login.jade', { error: 'Invalid email or password.' });
       }
     }
   });
