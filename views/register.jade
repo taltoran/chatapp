@@ -7,7 +7,7 @@ block content
   h2 Register
 
   if error
-    p ERROR: #{error}
+    .error #{error}
 
   .form-style-8
     form(method="post")
@@ -34,7 +34,7 @@ block content
       br
 
       span Confirm Password:
-      input(type="password", name="confirmpassword", required=true)
+      input(type="password", name="confirmPassword", required=true)
       br
 
       input(type="submit")
