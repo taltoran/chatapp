@@ -16,6 +16,4 @@ router.get('/', function(req, res, next) {
   res.render('chat', { title: 'This is a test chat page.', user:  userName})
 });
 
-
-
 module.exports = router;
