@@ -1,4 +1,6 @@
 var express = require('express');
+var token = require('token');
+var auth = require('../auth');
 var router = express.Router();
 
 router.get(function(req, res, next) {
@@ -12,8 +14,14 @@ router.get(function(req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var userName = req.query.userName;
-  res.render('chat', { title: 'This is a test chat page.', user:  userName})
+  if(!token.verify(req.session.authEmail, req.session.authToken)) {
+    console.log('not logged in, redirecting to login page');
+    return res.redirect('login');
+  }
+  console.log('entering chat as user \"'+req.session.authName+'\"')
+  var params = { title: 'This is a test chat page.', user: req.session.authName};
+  auth.getLoginType(req, params);
+  res.render('chat', params);
 });
 
 module.exports = router;

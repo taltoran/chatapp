@@ -1,4 +1,3 @@
-block vars
 doctype html
 html
   head
@@ -7,8 +6,8 @@ html
         for 
         a(href="/")
           .nav-item Main
-        a(href="/login") 
-          .nav-item Log In
+        a(href=loginTypeUrl) 
+          .nav-item= loginType
         a(href="/register") 
           .nav-item Register
         a(href="/chat")
