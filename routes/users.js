@@ -22,7 +22,7 @@ router.post('/login', function(req, res, next) {
         res.redirect('/chat?userName='+user.userName);
       } else {
         //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
-        res.redirect('login');
+        res.render('login.jade', { error: 'Invalid email or password.' });
       }
     }
   });
