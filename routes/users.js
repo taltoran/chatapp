@@ -10,20 +10,15 @@ router.get('/login', function(req, res, next) {
 
 router.post('/login', function(req, res, next) {
   //before accessing these check the type
-  user.findOne({ email: req.body.email, password: req.body.password }, 'firstName lastName email password data', function(err, user) {
-    if (err){
-      return(next(err));
-    } else {
-      next();
-    }
+  user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user, err) {
+//  user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user) {
     if (!user) {
       //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
-      //if error check error
-      req.user.session = user._id;
-      res.redirect('register');
+      res.render('login.jade', { error: 'Invalid email or password.' });
     } else {
       if (bcrypt.compareSync(req.body.password, user.password)) {
         //utils.createUserSession(req, res, user);
+        //req.user.session = user.id;
         res.redirect('/chat?userName='+user.userName);
       } else {
         //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
