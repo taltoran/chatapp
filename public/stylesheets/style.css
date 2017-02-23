@@ -295,3 +295,8 @@ ul {
   width: 100%;
 }
 
+.error {
+    text-align: center;
+    color: red;
+    margin-top: 20px;
+}
