@@ -8,9 +8,11 @@ var auth = require('../auth');
 
 router.get('/logout', function(req, res, next) {
   token.invalidate(req.session.authEmail, req.session.authToken);
-  req.session.authToken = undefined;
-  req.session.authEmail = undefined;
-  req.session.authName = undefined;
+  //Taken out by BL per professor Beus
+  //req.session.authToken = undefined;
+  //req.session.authEmail = undefined;
+  //req.session.authName = undefined;
+  req.session = null;
   console.log('successfully logged out');
   return res.redirect('/');
 });
