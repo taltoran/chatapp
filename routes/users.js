@@ -36,7 +36,9 @@ router.post('/login', function(req, res, next) {
 //  user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user) {
     if (!user) {
       // this user doesn't exist!
+
       var params = { error: "Incorrect email / password."};
+
       auth.getLoginType(req, params);
       res.render('login', params);
     }
@@ -54,7 +56,9 @@ router.post('/login', function(req, res, next) {
       else {
         // incorrect password, try again
         //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
-        res.render('login.jade', { error: 'Invalid email or password.' });
+        var params = { title: 'Registration Page.' , error: 'Invalid email or password.' };
+        auth.getLoginType(req, params);
+        res.render('login', params);
       }
     }
   });
@@ -72,7 +76,7 @@ router.post('/register', function(req, res) {
     req.body.userName,
     req.body.email,
     req.body.password,
-    req.body.password,
+    req.body.confirmPassword,
     req.body.firstName,
     req.body.lastName
   );
