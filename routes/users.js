@@ -34,7 +34,7 @@ router.post('/login', function(req, res, next) {
 //  user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user) {
     if (!user) {
       // this user doesn't exist!
-      var params = { error: "Incorrect email / password.", csrfToken: req.csrfToken() };
+      var params = { error: "Incorrect email / password." };
       auth.getLoginType(req, params);
       res.render('login', params);
     }
