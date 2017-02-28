@@ -23,25 +23,27 @@ var emailRegex = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)
 var userNameRegex = /^[a-zA-Z0-9_\-]+$/;
 
 function verifyInfo(userName, email, password, confirmPassword, firstName, lastName) {
+    let errors = [];
     if(!userNameRegex.test(userName)) {
-        return 'Username can only include alphanumeric characters, dashes, and underscores.';
+         errors.push('Username can only include alphanumeric characters, dashes, and underscores.');
     }
     if(!emailRegex.test(email)) {
-        return 'Invalid email address.';
+        errors.push('Invalid email address.');
     }
     if(password.length < 6) {
-        return 'Password must be at least 6 characters long.';
+         errors.push('Password must be at least 6 characters long.');
     }
     if(confirmPassword.length <= 0 || password != confirmPassword) {
-        return 'Passwords do not match!';
+         errors.push('Passwords do not match!');
     }
     if(firstName.length <= 0) {
-        return 'Please enter a first name.';
+        errors.push('Please enter a first name.');
     }
     if(lastName.length <= 0) {
-        return 'Please enter a last name.';
+        errors.push('Please enter a last name.');
     }
-    return undefined;
+    
+    return (errors.length>0) ? errors : undefined;
 }
 
 
