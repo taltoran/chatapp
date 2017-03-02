@@ -3,7 +3,7 @@ var token = require('token');
 var auth = require('../auth');
 var router = express.Router();
 
-router.get(function(req, res, next) {
+router.all(function(req, res, next) {
   if( ! req.mySessionKey.userId ){
     res.redirect('/users/login');
     //res.redirect('/login');
@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
     return res.redirect('login');
   }
   console.log('entering chat as user \"'+req.session.authName+'\"')
-  var params = { title: 'This is a test chat page.', user: req.session.authName, email: req.session.authEmail};
+  var params = { title: '90s chatapp.', user: req.session.authName};
   auth.getLoginType(req, params);
   res.render('chat', params);
 });

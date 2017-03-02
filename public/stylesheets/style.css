@@ -1,6 +1,7 @@
 body {
   /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
   font: 14px "Gotham", Helvetica, Arial, sans-serif;
+  background-color: #11140F;
 }
 
 a {
@@ -9,6 +10,12 @@ a {
 
 h2{
   text-align: center;
+  color: #168224;
+}
+
+.title{
+  text-align: center;
+  color:#00ed4b 
 }
 
 .web_title{
@@ -20,7 +27,12 @@ h2{
   margin-left: 20px;
 }
 
-
+.created{
+  text-align: center;
+}
+.creator{
+  margin-left: 100px;
+}
 
 .app-footer {
   color: #ccc;
@@ -35,7 +47,13 @@ h2{
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  background: #005;
+  background: #1F2719;
+}
+
+.logo{
+  position: absolute;
+  left: 0.33%;
+  margin-top: 2px;
 }
 
 .nav-items {
@@ -49,15 +67,24 @@ h2{
 }
 
 .nav-item {
-  height: 35px;
-  width: 65px;
+  height: 40px;
+  width: 90px;
   justify-content: center;
   display: flex;
   align-items: center;
   color: #aaa;
+  font-size: 20px;
 }
+
 .nav-item:hover {
-  color: #fff; 
+  color: #3aaf4a; 
+}
+
+img.chatapp{
+  display: block;
+  margin: auto;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .app-navbar {
@@ -69,11 +96,12 @@ h2{
     font-family: 'Open Sans Condensed', arial, sans;
     width: 500px;
     padding: 30px;
-    background: #FFFFFF;
+    background: #1c231d;
     margin: 50px auto;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 0px 15px rgb(17, 117, 69);
+    -moz-box-shadow: 0px 0px 15px rgb(17, 117, 69);
+    -webkit-box-shadow:  0px 0px 15px rgb(17, 117, 69);
+    color: #14d802;
 
 }
 .form-style-8 h2{
@@ -85,6 +113,7 @@ h2{
     font-weight: 100;
     padding: 20px;
     margin: -30px -30px 30px -30px;
+    color: #3aaf4a;
 }
 .form-style-8 input[type="text"],
 .form-style-8 input[type="date"],
@@ -111,18 +140,20 @@ h2{
     margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
     height: 45px;
+    color: #29a03a;
 }
 .form-style-8 textarea{
     resize:none;
     overflow: hidden;
+    color: #29a03a;
 }
 .form-style-8 input[type="button"], 
 .form-style-8 input[type="submit"]{
-    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-    box-shadow: inset 0px 1px 0px 0px #45D6D6;
-    background-color: #2CBBBB;
-    border: 1px solid #27A0A0;
+    -moz-box-shadow: inset 0px 1px 0px 0px #14d802;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #14d802;
+    box-shadow: inset 0px 1px 0px 0px #14d802;
+    background-color: #07330f;
+    border: 1px solid #14d802;
     display: inline-block;
     cursor: pointer;
     color: #FFFFFF;
@@ -131,11 +162,13 @@ h2{
     padding: 8px 18px;
     text-decoration: none;
     text-transform: uppercase;
+    color: #29a03a;
 }
 .form-style-8 input[type="button"]:hover, 
 .form-style-8 input[type="submit"]:hover {
-    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
-    background-color:#34CACA;
+    background:linear-gradient(to bottom, #045e15 5%, #045e15 100%);
+    background-color:#045e15;
+    color: #3aaf4a;
 }
 
 body {
@@ -223,6 +256,7 @@ ul {
   font-size: 200%;
 }
 
+
 .login.page .usernameInput {
   font-size: 200%;
   letter-spacing: 3px;
@@ -243,6 +277,7 @@ ul {
 
 .messages {
   font-size: 150%;
+  color: #08911f;
 }
 
 .inputMessage {
@@ -310,6 +345,10 @@ ul {
 
 .error {
     text-align: center;
-    color: red;
+    color: #F0E68C;
     margin-top: 20px;
+}
+
+h2.title{
+  color: #1a9b2c;
 }
