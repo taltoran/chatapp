@@ -292,7 +292,20 @@ ul {
   padding-left: 10px;
   position: absolute;
   right: 0;
-  width: 100%;
+  width: 90%;
+}
+.sendMessage {
+  border: 10px solid #999;
+  border-left: 0px;
+  bottom: 0;
+  height: 60px;
+  left: 90%;
+  outline: none;
+  padding-left: 10px;
+  position: absolute;
+  right: 0;
+  width: 10%;
+  min-width: 100px;
 }
 
 .error {
