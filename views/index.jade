@@ -1,22 +1,19 @@
 extends layout
 
-block vars
- - var title = 'Main'
-
 block content
-  .web_title
-    h1 90's Internet
   .main_page
-    p build a 90s style chatroom using node.js, socket.io, express, mongodb, and mongoose
-    p In this assignment you will be creating a real-time social networking application. Again, this will be a web app that you will design and create from the ground up using the specified stack. Try to take what you have learned from Project 1 and use it to make this project more manageable and easier to tackle.
+    img.chatapp#buller(src = "/pics/90schatapp.jpg")
+    h2 We built a 90s style chat application using node.js, socket.io, express, mongodb, and mongoose
 
-    p This application should enable logged in users to chat back and forth with whomever else is logged in. Effectively, this should resemble the old 90’s style of chat rooms that used to be so prolific on the internet. Everyone that is logged in should see everyone else’s messages, and should be able to respond to the entire connected group. If you choose, you may implement rooms using Socket.IO’s rooms capability and allow your users to create and join new rooms. If you do this, you will need to show all available rooms and allow for the creation of a new room. Once the link is clicked on, the user should be taken to that room. At that point, the only messages that are seen are from those that are in the same room. Likewise, any responses should only be sent to members of the room.
+    h2 This application enables users to log in and chat back and forth with whomever else is logged in. Effectively, this resembles the old 90’s style of chat rooms that used to be so prolific on the internet. Everyone that is logged in sees everyone else’s messages, and is be able to respond to the entire connected group. We are working on implementing rooms using Socket.IO’s rooms capability which will allow users to create and join new rooms. We plan to show all available rooms and allow for the creation of a new room. Once the link is clicked on, the user is taken to that room. At that point, the only messages that are seen are from those that are in the same room. Likewise, any responses are only sent to members of the room.
 
-    p Your users should be allowed to login and log off, as well as register to create an account. When a new account is created, just add it to the database – don’t worry about sending out emails for confirmation or anything like that. Once logged in, the user should be taken directly to the chat room.
-    
-    h4 Zachary Fullmer
-    h4 Parker Jensen
-    h4 Cade Kynaston
-    h4 Bobby Loock
-    h4 Zachariah Scovill
-    h4 Glen Taylor
+    h2 Users are allowed to login and log off, after registering with an account. When a new account is created, we add it to the database and one logged in the user is taken directly to the chat room.
+
+    .form-style-8
+      h3.created Created by:
+      h4.creator Zachary Fullmer
+      h4.creator Parker Jensen
+      h4.creator Cade Kynaston
+      h4.creator Bobby Loock
+      h4.creator Zachariah Scovill
+      h4.creator Glen Taylor
