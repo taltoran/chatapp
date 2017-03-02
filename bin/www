@@ -7,12 +7,15 @@
 var app = require('../app');
 var debug = require('debug')('cs3750project2:server');
 var http = require('http');
+var mongoose = require('mongoose');
+var user = require('../models/modelSetup');
 
  var express = require('express');
 //var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
+
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
@@ -29,12 +32,18 @@ io.on('connection', function (socket) {
   var addedUser = false;
 
   // when the client emits 'new message', this listens and executes
-  socket.on('new message', function (data) {
+  socket.on('new message', function (message, email) {
     // we tell the client to execute 'new message'
     socket.broadcast.emit('new message', {
       username: socket.username,
-      message: data
+      message: message
     });
+
+    user.findOne({ email:  email}, 'firstName lastName userName email password messages', function(err, user, err) {
+      user.messages.push(message);
+      user.save();
+    });
+
   });
 
   // when the client emits 'add user', this listens and executes
