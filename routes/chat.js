@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
     return res.redirect('login');
   }
   console.log('entering chat as user \"'+req.session.authName+'\"')
-  var params = { title: '90s chatapp.', user: req.session.authName};
+  var params = { title: '90s chatapp.', user: req.session.authName, email: req.session.authEmail};
   auth.getLoginType(req, params);
   res.render('chat', params);
 });
