@@ -1,17 +1,25 @@
 module.exports = function(io){
     var numUsers = 0;
+    
+var user = require('../models/modelSetup');
 
 io.on('connection', function (socket) {
   var addedUser = false;
 
   // when the client emits 'new message', this listens and executes
-  socket.on('new message', function (data) {
+  socket.on('new message', function (message, email) {
     // we tell the client to execute 'new message'
     socket.broadcast.emit('new message', {
       username: socket.username,
-      message: data
+      message: message
+    });
+    user.findOne({ email:  email}, 'firstName lastName userName email password messages', function(err, user, err) {
+      user.messages.push(message);
+      user.save();
     });
   });
+
+
   /*//Used for private room
   //add collection to add new rooms, use set
   //check for casing, make all lower
