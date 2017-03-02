@@ -10,8 +10,10 @@ $(function() {
   // Initialize variables
   var $window = $(window);
   var $usernameInput = $('.usernameInput'); // Input for username
+  var $userEmailHidden = $('.userEmail')
   var $usernameHidden = $('.userName');
   var $messages = $('.messages'); // Messages area
+  var $sendButton = $('.sendMessage')
   var $inputMessage = $('.inputMessage'); // Input message input box
 
   var $loginPage = $('.login.page'); // The login page
@@ -61,6 +63,7 @@ $(function() {
   // Sends a chat message
   function sendMessage () {
     var message = $inputMessage.val();
+    var email = $userEmailHidden.val();
     // Prevent markup from being injected into the message
     message = cleanInput(message);
     // if there is a non-empty message and a socket connection
@@ -68,10 +71,10 @@ $(function() {
       $inputMessage.val('');
       addChatMessage({
         username: username,
-        message: message
+        message: message,
       });
       // tell server to execute 'new message' and send along one parameter
-      socket.emit('new message', message);
+      socket.emit('new message', message, email);
     }
   }
 
@@ -196,6 +199,12 @@ $(function() {
   }
 
   // Keyboard events
+
+  $sendButton.click(function(){
+    sendMessage();
+    socket.emit('stop typing');
+    typing = false;
+  });
 
   $window.keydown(function (event) {
     // Auto-focus the current input when a key is typed

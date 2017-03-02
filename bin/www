@@ -7,14 +7,18 @@
 var app = require('../app');
 var debug = require('debug')('cs3750project2:server');
 var http = require('http');
+
 var socket = require('../routes/socket');
+
  var express = require('express');
 //var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
 
+
 socket(io);
+
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
