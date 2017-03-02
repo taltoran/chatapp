@@ -1,7 +1,7 @@
 body {
   /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
   font: 14px "Gotham", Helvetica, Arial, sans-serif;
-  background-color: #000c02;
+  background-color: #11140F;
 }
 
 a {
@@ -10,7 +10,7 @@ a {
 
 h2{
   text-align: center;
-  color: #08d12a;
+  color: #168224;
 }
 
 .title{
@@ -47,7 +47,7 @@ h2{
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  background: #005;
+  background: #1F2719;
 }
 
 .logo{
@@ -77,7 +77,7 @@ h2{
 }
 
 .nav-item:hover {
-  color: #0bef54; 
+  color: #3aaf4a; 
 }
 
 img.chatapp{
@@ -96,7 +96,7 @@ img.chatapp{
     font-family: 'Open Sans Condensed', arial, sans;
     width: 500px;
     padding: 30px;
-    background: #051e12;
+    background: #1c231d;
     margin: 50px auto;
     box-shadow: 0px 0px 15px rgb(17, 117, 69);
     -moz-box-shadow: 0px 0px 15px rgb(17, 117, 69);
@@ -113,7 +113,7 @@ img.chatapp{
     font-weight: 100;
     padding: 20px;
     margin: -30px -30px 30px -30px;
-    color: #00ed4b;
+    color: #3aaf4a;
 }
 .form-style-8 input[type="text"],
 .form-style-8 input[type="date"],
@@ -140,12 +140,12 @@ img.chatapp{
     margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
     height: 45px;
-    color: #00ed4b;
+    color: #29a03a;
 }
 .form-style-8 textarea{
     resize:none;
     overflow: hidden;
-    color: #14d802;
+    color: #29a03a;
 }
 .form-style-8 input[type="button"], 
 .form-style-8 input[type="submit"]{
@@ -162,13 +162,13 @@ img.chatapp{
     padding: 8px 18px;
     text-decoration: none;
     text-transform: uppercase;
-    color: #14d802;
+    color: #29a03a;
 }
 .form-style-8 input[type="button"]:hover, 
 .form-style-8 input[type="submit"]:hover {
     background:linear-gradient(to bottom, #045e15 5%, #045e15 100%);
     background-color:#045e15;
-    color: #FFFFFF;
+    color: #3aaf4a;
 }
 
 body {
@@ -256,6 +256,7 @@ ul {
   font-size: 200%;
 }
 
+
 .login.page .usernameInput {
   font-size: 200%;
   letter-spacing: 3px;
@@ -331,6 +332,10 @@ ul {
 
 .error {
     text-align: center;
-    color: red;
+    color: #F0E68C;
     margin-top: 20px;
+}
+
+h2.title{
+  color: #1a9b2c;
 }
