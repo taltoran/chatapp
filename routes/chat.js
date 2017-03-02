@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
     return res.redirect('login');
   }
   console.log('entering chat as user \"'+req.session.authName+'\"')
-  var params = { title: 'This is a test chat page.', user: req.session.authName};
+  var params = { title: 'This is a test chat page.', user: req.session.authName, email: req.session.authEmail};
   auth.getLoginType(req, params);
   res.render('chat', params);
 });
