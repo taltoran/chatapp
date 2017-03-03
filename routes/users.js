@@ -8,9 +8,11 @@ var auth = require('../auth');
 
 router.get('/logout', function(req, res, next) {
   token.invalidate(req.session.authEmail, req.session.authToken);
-  req.session.authToken = undefined;
-  req.session.authEmail = undefined;
-  req.session.authName = undefined;
+  //Taken out by BL per professor Beus
+  //req.session.authToken = undefined;
+  //req.session.authEmail = undefined;
+  //req.session.authName = undefined;
+  req.session = null;
   console.log('successfully logged out');
   return res.redirect('/');
 });
@@ -34,7 +36,9 @@ router.post('/login', function(req, res, next) {
 //  user.findOne({ email: req.body.email }, 'firstName lastName userName email password data', function(err, user) {
     if (!user) {
       // this user doesn't exist!
-      var params = { error: "Incorrect email / password." };
+
+      var params = { error: "Incorrect email / password."};
+
       auth.getLoginType(req, params);
       res.render('login', params);
     }
@@ -109,9 +113,6 @@ router.post('/register', function(req, res) {
       res.render('register', params);
     }
     else {
-      req.session.users = newUser;
-      req.users = newUser;
-      res.locals.user = newUser;
       console.log('user added');
       res.redirect('/login');
     }

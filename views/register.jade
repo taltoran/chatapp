@@ -1,10 +1,7 @@
 extends layout
 
-block vars
-  - var title = 'Register'
-
 block content
-  h2 Register
+  h2.title Register
 
   if error
     - for (var i=0; i<error.length; i++)
