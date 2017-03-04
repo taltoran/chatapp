@@ -283,6 +283,11 @@ $(function() {
   socket.on('disconnect', function () {
     log('you have been disconnected');
   });
+  /*//create a private room
+  //some ui to show/create rooms
+  //do the following line to get into the room
+  //special case for if pick main room use a diff sending method
+  socket.emit('create', 'room1');*/
 
   socket.on('reconnect', function () {
     log('you have been reconnected');
