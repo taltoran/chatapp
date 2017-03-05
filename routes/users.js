@@ -25,7 +25,7 @@ router.get('/login', function(req, res, next) {
             return res.redirect('/chat');
         }
     }
-    var params = {};
+    var params = { title: 'Chatapp Login' };
     auth.getLoginType(req, params);
     res.render('login', params);
 });
@@ -37,7 +37,7 @@ router.post('/login', function(req, res, next) {
         if (!user) {
             // this user doesn't exist!
 
-            var params = { error: "Incorrect email / password." };
+            var params = { title: 'Chatapp Login', error: "Incorrect email / password." };
 
             auth.getLoginType(req, params);
             res.render('login', params);
@@ -54,7 +54,7 @@ router.post('/login', function(req, res, next) {
             } else {
                 // incorrect password, try again
                 //res.render('login.jade', { error: "Incorrect email / password.", csrfToken: req.csrfToken() });
-                var params = { title: 'Registration Page.', error: 'Invalid email or password.' };
+                var params = { title: 'Chatapp Registration', error: 'Invalid email or password.' };
                 auth.getLoginType(req, params);
                 res.render('login', params);
             }
@@ -63,7 +63,7 @@ router.post('/login', function(req, res, next) {
 });
 
 router.get('/register', function(req, res, next) {
-    var params = { title: 'Registration Page.' };
+    var params = { title: 'Chatapp Registration' };
     auth.getLoginType(req, params);
     res.render('register', params);
 });
@@ -79,7 +79,7 @@ router.post('/register', function(req, res) {
         req.body.lastName
     );
     var params = {
-        title: 'Registration Page.',
+        title: 'Chatapp Registration',
         error: verifyError,
         userName: req.body.userName,
         firstName: req.body.firstName,
