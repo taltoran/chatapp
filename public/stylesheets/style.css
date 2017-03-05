@@ -1,98 +1,101 @@
 body {
-  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
-  font: 14px "Gotham", Helvetica, Arial, sans-serif;
-  background-color: #11140F;
+    /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+    font: 14px "Gotham", Helvetica, Arial, sans-serif;
+    background-color: #11140F;
 }
 
 a {
-  color: #000;
+    color: #000;
 }
 
-h2{
-  text-align: center;
-  color: #168224;
+h2 {
+    text-align: center;
+    color: #168224;
 }
 
-.title{
-  text-align: center;
-  color:#00ed4b 
+h2.title {
+    text-align: center;
+    color: #00ed4b
 }
 
-.web_title{
-  margin-left: 40px;
-  font: 'fantasy', sans-serif;
+.web_title {
+    margin-left: 40px;
+    font: 'fantasy', sans-serif;
 }
 
-.main_page{
-  margin-left: 20px;
+.main_page {
+    margin-left: 20px;
 }
 
-.created{
-  text-align: center;
+.created {
+    text-align: center;
 }
-.creator{
-  margin-left: 100px;
+
+.creator {
+    margin-left: 100px;
 }
 
 .app-footer {
-  color: #ccc;
-  text-align: center;
-  font-size: 12px;
-  bottom: 0;
-  height: 40px;
-  margin-top: 40px;
+    color: #ccc;
+    text-align: center;
+    font-size: 12px;
+    bottom: 0;
+    height: 40px;
+    margin-top: 40px;
 }
 
 .app-navbar {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  background: #1F2719;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background: #1F2719;
 }
 
-.logo{
-  position: absolute;
-  left: 0.33%;
-  margin-top: 2px;
+.logo {
+    position: absolute;
+    left: 0.33%;
+    margin-top: 2px;
 }
 
 .nav-items {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .nav-items a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .nav-item {
-  height: 40px;
-  width: 90px;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  color: #aaa;
-  font-size: 20px;
+    height: 40px;
+    width: 90px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: #aaa;
+    font-size: 20px;
 }
 
 .nav-item:hover {
-  color: #3aaf4a; 
+    color: #3aaf4a;
 }
 
-img.chatapp{
-  display: block;
-  margin: auto;
-  margin-bottom: 40px;
-  margin-top: 40px;
+img.chatapp {
+    display: block;
+    margin: auto;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .app-navbar {
-  border: solid 1px #555;
+    border: solid 1px #555;
 }
 
+
 /*newest input starting here*/
-.form-style-8{
+
+.form-style-8 {
     font-family: 'Open Sans Condensed', arial, sans;
     width: 500px;
     padding: 30px;
@@ -100,11 +103,11 @@ img.chatapp{
     margin: 50px auto;
     box-shadow: 0px 0px 15px rgb(17, 117, 69);
     -moz-box-shadow: 0px 0px 15px rgb(17, 117, 69);
-    -webkit-box-shadow:  0px 0px 15px rgb(17, 117, 69);
+    -webkit-box-shadow: 0px 0px 15px rgb(17, 117, 69);
     color: #14d802;
-
 }
-.form-style-8 h2{
+
+.form-style-8 h2 {
     background: #4D4D4D;
     text-transform: uppercase;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -115,6 +118,7 @@ img.chatapp{
     margin: -30px -30px 30px -30px;
     color: #3aaf4a;
 }
+
 .form-style-8 input[type="text"],
 .form-style-8 input[type="date"],
 .form-style-8 input[type="datetime"],
@@ -125,8 +129,7 @@ img.chatapp{
 .form-style-8 input[type="url"],
 .form-style-8 input[type="password"],
 .form-style-8 textarea,
-.form-style-8 select 
-{
+.form-style-8 select {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -140,15 +143,17 @@ img.chatapp{
     margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
     height: 45px;
-    color: #29a03a;
+    color: #FFFFFF;
 }
-.form-style-8 textarea{
-    resize:none;
+
+.form-style-8 textarea {
+    resize: none;
     overflow: hidden;
     color: #29a03a;
 }
-.form-style-8 input[type="button"], 
-.form-style-8 input[type="submit"]{
+
+.form-style-8 input[type="button"],
+.form-style-8 input[type="submit"] {
     -moz-box-shadow: inset 0px 1px 0px 0px #14d802;
     -webkit-box-shadow: inset 0px 1px 0px 0px #14d802;
     box-shadow: inset 0px 1px 0px 0px #14d802;
@@ -162,185 +167,208 @@ img.chatapp{
     padding: 8px 18px;
     text-decoration: none;
     text-transform: uppercase;
-    color: #29a03a;
 }
-.form-style-8 input[type="button"]:hover, 
+
+.form-style-8 input[type="button"]:hover,
 .form-style-8 input[type="submit"]:hover {
-    background:linear-gradient(to bottom, #045e15 5%, #045e15 100%);
-    background-color:#045e15;
+    background: linear-gradient(to bottom, #045e15 5%, #045e15 100%);
+    background-color: #045e15;
+    color: #3aaf4a;
+}
+
+button.sendMessage {
+    -moz-box-shadow: inset 0px 1px 0px 0px #FFFFFF;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #FFFFFF;
+    box-shadow: inset 0px 1px 0px 0px #FFFFFF;
+    background-color: #07330f;
+    border: 1px solid #14d802;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+button.sendMessage:hover {
+    background: linear-gradient(to bottom, #045e15 5%, #045e15 100%);
+    background-color: #045e15;
     color: #3aaf4a;
 }
 
 body {
-  padding: 50px;
-  font: 14px "Gotham", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Gotham", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
 }
 
-html, input {
-  font-family:
-    "HelveticaNeue-Light",
-    "Helvetica Neue Light",
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    "Lucida Grande",
-    sans-serif;
+html,
+input {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 ul {
-  list-style: none;
-  word-wrap: break-word;
+    list-style: none;
+    word-wrap: break-word;
 }
+
 
 /* Pages */
 
 .pages {
-  height: 85%;
-  margin: 0;
-  padding: 0;
-  width: 100%;
+    height: 85%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 .page {
-  height: 85%;
-  position: absolute;
-  width: 100%;
+    height: 85%;
+    position: absolute;
+    width: 100%;
 }
+
 
 /* Login Page */
 
 .login.page {
-  background-color: #000;
+    background-color: #000;
 }
 
 .login.page .form {
-  height: 100px;
-  margin-top: -100px;
-  position: absolute;
-
-  text-align: center;
-  top: 50%;
-  width: 100%;
+    height: 100px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
 }
 
 .login.page .form .usernameInput {
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid #999;
-  outline: none;
-  padding-bottom: 15px;
-  text-align: center;
-  width: 400px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #999;
+    outline: none;
+    padding-bottom: 15px;
+    text-align: center;
+    width: 400px;
 }
 
 .login.page .title {
-  font-size: 200%;
+    font-size: 200%;
 }
-
 
 .login.page .usernameInput {
-  font-size: 200%;
-  letter-spacing: 3px;
+    font-size: 200%;
+    letter-spacing: 3px;
 }
 
-.login.page .title, .login.page .usernameInput {
-  color: #000;
-  font-weight: 100;
+.login.page .title,
+.login.page .usernameInput {
+    color: #000;
+    font-weight: 100;
 }
+
 
 /* Chat page */
 
 .chat.page {
-  display: none;
+    display: none;
 }
+
 
 /* Font */
 
 .messages {
-  font-size: 150%;
-  color: #08911f;
+    font-size: 150%;
+    color: #08911f;
 }
 
 .inputMessage {
-  font-size: 100%;
+    font-size: 100%;
 }
 
 .log {
-  color: gray;
-  font-size: 70%;
-  margin: 5px;
-  text-align: center;
+    color: gray;
+    font-size: 70%;
+    margin: 5px;
+    text-align: center;
 }
+
 
 /* Messages */
 
 .chatArea {
-  height: 95%;
-  padding-bottom: 60px;
+    height: 95%;
+    padding-bottom: 60px;
 }
 
 .messages {
-  height: 100%;
-  margin: 0;
-  overflow-y: scroll;
-  padding: 10px 20px 10px 20px;
+    height: 100%;
+    margin: 0;
+    overflow-y: scroll;
+    padding: 10px 20px 10px 20px;
 }
 
 .message.typing .messageBody {
-  color: gray;
+    color: gray;
 }
 
 .username {
-  font-weight: 700;
-  overflow: hidden;
-  padding-right: 15px;
-  text-align: right;
+    font-weight: 700;
+    overflow: hidden;
+    padding-right: 15px;
+    text-align: right;
 }
+
 
 /* Input */
 
 .inputMessage {
-  border: 10px solid #999;
-  bottom: 0;
-  height: 60px;
-  left: 0;
-  outline: none;
-  padding-left: 10px;
-  position: absolute;
-  right: 0;
-  width: 90%;
+    border: 10px solid #999;
+    bottom: 0;
+    height: 60px;
+    left: 0;
+    outline: none;
+    padding-left: 10px;
+    position: absolute;
+    right: 0;
+    width: 90%;
 }
+
 .sendMessage {
-  border: 10px solid #999;
-  border-left: 0px;
-  bottom: 0;
-  height: 60px;
-  left: 90%;
-  outline: none;
-  padding-left: 10px;
-  position: absolute;
-  right: 0;
-  width: 10%;
-  min-width: 100px;
+    border: 10px solid #999;
+    border-left: 0px;
+    bottom: 0;
+    height: 60px;
+    left: 90%;
+    outline: none;
+    padding-left: 10px;
+    position: absolute;
+    right: 0;
+    width: 10%;
+    min-width: 100px;
 }
 
 .error {
@@ -349,6 +377,6 @@ ul {
     margin-top: 20px;
 }
 
-h2.title{
-  color: #1a9b2c;
+h2.title {
+    color: #1a9b2c;
 }
